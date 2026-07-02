@@ -1,0 +1,14 @@
+@import "@fontsource-variable/outfit";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-night: #0b0b0d;
+  --color-night-raise: #141417;
+  --color-line: #26262b;
+  --color-accent: #f43f5e;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
