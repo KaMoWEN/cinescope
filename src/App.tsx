@@ -1,5 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { FilmSlate } from "@phosphor-icons/react";
+import { FilmSlateIcon } from "@phosphor-icons/react";
 import { HomePage } from "./pages/HomePage";
 import { MoviePage } from "./pages/MoviePage";
 import { NotFoundState } from "./components/StateViews";
@@ -13,7 +13,7 @@ export default function App() {
             to="/"
             className="inline-flex items-center gap-2 text-sm font-semibold tracking-tight text-zinc-100"
           >
-            <FilmSlate size={20} className="text-accent" weight="fill" />
+            <FilmSlateIcon size={20} className="text-accent" weight="fill" />
             CineScope
           </Link>
           <a

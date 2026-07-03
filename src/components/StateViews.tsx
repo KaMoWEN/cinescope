@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import {
-  CloudSlash,
-  FilmSlate,
-  MagnifyingGlass,
-  Key,
+  CloudSlashIcon,
+  FilmSlateIcon,
+  MagnifyingGlassIcon,
+  KeyIcon,
 } from "@phosphor-icons/react";
 
 function StateShell({
@@ -30,7 +30,7 @@ function StateShell({
 
 export function ErrorState({ onRetry }: { onRetry?: () => void }) {
   return (
-    <StateShell icon={<CloudSlash size={26} />} title="Something went wrong">
+    <StateShell icon={<CloudSlashIcon size={26} />} title="Something went wrong">
       <p>We couldn&apos;t reach the movie database. Check your connection.</p>
       {onRetry && (
         <button
@@ -46,7 +46,7 @@ export function ErrorState({ onRetry }: { onRetry?: () => void }) {
 
 export function EmptyState({ query }: { query: string }) {
   return (
-    <StateShell icon={<MagnifyingGlass size={26} />} title="Nothing found">
+    <StateShell icon={<MagnifyingGlassIcon size={26} />} title="Nothing found">
       <p>
         No movies match <span className="text-zinc-200">“{query}”</span>. Try a
         different title.
@@ -57,7 +57,7 @@ export function EmptyState({ query }: { query: string }) {
 
 export function NotFoundState() {
   return (
-    <StateShell icon={<FilmSlate size={26} />} title="Page not found">
+    <StateShell icon={<FilmSlateIcon size={26} />} title="Page not found">
       <p>This reel doesn&apos;t exist. Head back to the catalogue.</p>
     </StateShell>
   );
@@ -65,7 +65,7 @@ export function NotFoundState() {
 
 export function NoKeyState() {
   return (
-    <StateShell icon={<Key size={26} />} title="API key required">
+    <StateShell icon={<KeyIcon size={26} />} title="API key required">
       <p>
         Create a free key at{" "}
         <a

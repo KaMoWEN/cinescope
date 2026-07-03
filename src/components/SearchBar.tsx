@@ -1,4 +1,4 @@
-import { MagnifyingGlass, X } from "@phosphor-icons/react";
+import { MagnifyingGlassIcon, XIcon } from "@phosphor-icons/react";
 
 interface SearchBarProps {
   value: string;
@@ -8,7 +8,7 @@ interface SearchBarProps {
 export function SearchBar({ value, onChange }: SearchBarProps) {
   return (
     <div className="relative w-full max-w-md">
-      <MagnifyingGlass
+      <MagnifyingGlassIcon
         size={16}
         className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-zinc-500"
       />
@@ -26,7 +26,7 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
           aria-label="Clear search"
           className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full p-1 text-zinc-500 transition-colors hover:text-zinc-200"
         >
-          <X size={14} />
+          <XIcon size={14} />
         </button>
       )}
     </div>

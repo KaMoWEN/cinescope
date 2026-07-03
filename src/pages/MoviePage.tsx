@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Star, Image as ImageIcon } from "@phosphor-icons/react";
+import { ArrowLeftIcon, StarIcon, ImageIcon } from "@phosphor-icons/react";
 import { backdropUrl, posterUrl } from "../api/tmdb";
 import { useMovie } from "../hooks/useMovie";
 import { ErrorState } from "../components/StateViews";
@@ -30,7 +30,7 @@ export function MoviePage() {
         to="/"
         className="mb-6 inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-accent"
       >
-        <ArrowLeft size={15} /> Back to catalogue
+        <ArrowLeftIcon size={15} /> Back to catalogue
       </Link>
 
       {status === "loading" && <DetailsSkeleton />}
@@ -75,7 +75,7 @@ export function MoviePage() {
               <dl className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-zinc-400">
                 {movie.vote_average > 0 && (
                   <div className="inline-flex items-center gap-1.5">
-                    <Star size={14} weight="fill" className="text-accent" />
+                    <StarIcon size={14} weight="fill" className="text-accent" />
                     <span className="text-zinc-100">
                       {movie.vote_average.toFixed(1)}
                     </span>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Star, Image as ImageIcon } from "@phosphor-icons/react";
+import { StarIcon, ImageIcon } from "@phosphor-icons/react";
 import { posterUrl } from "../api/tmdb";
 import type { Movie } from "../types/movie";
 
@@ -27,7 +27,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
         )}
         {movie.vote_average > 0 && (
           <span className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full bg-night/85 px-2 py-1 text-xs font-medium text-zinc-100 backdrop-blur">
-            <Star size={12} weight="fill" className="text-accent" />
+            <StarIcon size={12} weight="fill" className="text-accent" />
             {movie.vote_average.toFixed(1)}
           </span>
         )}

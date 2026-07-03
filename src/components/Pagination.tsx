@@ -1,4 +1,4 @@
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 
 interface PaginationProps {
   page: number;
@@ -26,7 +26,7 @@ export function Pagination({ page, totalPages, onPageChange }: PaginationProps) 
         onClick={() => onPageChange(page - 1)}
         disabled={page <= 1}
       >
-        <CaretLeft size={14} /> Prev
+        <CaretLeftIcon size={14} /> Prev
       </button>
       <span className="text-sm text-zinc-400 tabular-nums">
         Page {page} of {last}
@@ -36,7 +36,7 @@ export function Pagination({ page, totalPages, onPageChange }: PaginationProps) 
         onClick={() => onPageChange(page + 1)}
         disabled={page >= last}
       >
-        Next <CaretRight size={14} />
+        Next <CaretRightIcon size={14} />
       </button>
     </nav>
   );
