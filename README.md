@@ -2,7 +2,7 @@
 
 Movie discovery app: browse what's popular, search the full TMDB catalogue, open any film's details.
 
-🔗 **Live demo:** _coming soon (Vercel)_ · 💻 **Code:** this repository
+🔗 **Live demo:** [cinescope-omega-five.vercel.app](https://cinescope-omega-five.vercel.app) · 💻 **Code:** this repository
 
 ![Screenshot](./screenshot.png)
 
