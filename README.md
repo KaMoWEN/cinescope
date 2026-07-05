@@ -1,23 +1,23 @@
 # CineScope 🎬
 
-Movie discovery app: browse what's popular, search the full TMDB catalogue, open any film's details.
+Movie search on the TMDB API: browse what's popular, search the catalogue, open any film's page.
 
-🔗 **Live demo:** [cinescope-omega-five.vercel.app](https://cinescope-omega-five.vercel.app) · 💻 **Code:** this repository
+Live: [cinescope-omega-five.vercel.app](https://cinescope-omega-five.vercel.app)
 
 ![Screenshot](./screenshot.png)
 
 ## Features
 
-- Popular movies feed with pagination (TMDB REST API)
-- Debounced search (400 ms) with **AbortController**: a slow old response can never overwrite a newer one
-- Search state lives in the URL (`?q=...&page=...`), so results are shareable and the back button works
-- Routing with React Router: `/` catalogue, `/movie/:id` details page
-- Full state cycle: skeleton loaders, network error with retry, "nothing found" empty state
-- SPA rewrites for Vercel (`vercel.json`), so refreshing `/movie/123` doesn't 404
+- Popular movies feed with pagination
+- Search is debounced (400 ms) and cancels the previous request through AbortController, so a slow old response can't overwrite a newer one
+- Query and page live in the URL (`?q=...&page=...`), results are shareable and the back button behaves
+- Two routes with React Router: `/` for the catalogue, `/movie/:id` for details
+- Skeletons while loading, an error screen with retry, an empty state when nothing matches
+- `vercel.json` rewrites, so refreshing `/movie/123` doesn't 404
 
 ## Stack
 
-React · TypeScript · Vite · React Router · Tailwind CSS v4
+React, TypeScript, Vite, React Router, Tailwind CSS v4
 
 ## Run locally
 
@@ -27,10 +27,10 @@ cp .env.example .env   # then paste your TMDB key into .env
 npm run dev
 ```
 
-Get a free key at [themoviedb.org/settings/api](https://www.themoviedb.org/settings/api). Both the v3 API Key and the v4 Read Access Token work.
+A free key is at [themoviedb.org/settings/api](https://www.themoviedb.org/settings/api). Both the v3 API Key and the v4 Read Access Token work.
 
-> **Note on the key:** any `VITE_`-prefixed variable is inlined into the client bundle, so the key is visible in DevTools on the deployed site. For a free TMDB key this is a deliberate, documented trade-off for a demo. The production-grade fix is proxying requests through a serverless function so the key never leaves the server.
+About the key: anything with a `VITE_` prefix gets inlined into the client bundle, so on the live site the key is visible in DevTools. For a free TMDB key I decided that's fine for a demo. The proper fix is a server-side proxy, which is what I did later in [MarketDesk](https://github.com/KaMoWEN/MarketDesk).
 
 ## What I learned
 
-Debounce alone doesn't make search correct: responses can arrive out of order, so each new request aborts the previous one via `AbortController` in the `useEffect` cleanup. Keeping query and page in the URL instead of component state made navigation and sharing work for free.
+Debounce alone doesn't make search correct. Responses can come back out of order, so each new request aborts the previous one in the `useEffect` cleanup. Moving query and page into the URL also turned out simpler than keeping them in component state, and shareable links came for free.
